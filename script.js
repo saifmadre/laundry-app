@@ -181,3 +181,12 @@ weddingButton.addEventListener("click", function () {
 
     totalPrice.textContent = total;
 });
+
+const bookingForm = document.getElementById("bookingForm");
+const bookingMessage = document.getElementById("bookingMessage");
+
+bookingForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    bookingMessage.textContent = "Booking successful! Thank you for choosing our services.";
+});
