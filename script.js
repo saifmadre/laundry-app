@@ -1,3 +1,5 @@
+emailjs.init("KRz9OaZhesFN8O9s3");
+
 let total = 0;
 
 const dryButton = document.getElementById("dryCleaningBtn");
@@ -188,5 +190,22 @@ const bookingMessage = document.getElementById("bookingMessage");
 bookingForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    bookingMessage.textContent = "Booking successful! Thank you for choosing our services.";
+    const templateParams = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        total: total
+    };
+
+    emailjs.send("service_605s5sl", "template_rfhv99c", templateParams)
+        .then(function () {
+            bookingMessage.textContent =
+                "Thank you For Booking the Service We will get back to you soon!";
+            bookingMessage.style.color = "green";
+            bookingForm.reset();
+        })
+        .catch(function () {
+            bookingMessage.textContent = "Email failed. Please try again.";
+            bookingMessage.style.color = "red";
+        });
 });
