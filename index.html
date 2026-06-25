@@ -64,69 +64,84 @@
 
     </section>
 
-    <section id="services">
-        <h3>Our Services</h3>
-        <p>We offer a wide range of laundry services to meet your needs.</p>
 
-        <div>
-            <p>Dry Cleaning - ₹200</p>
-            <button id="dryCleaningBtn">Add Item</button>
+
+
+
+
+
+
+    <section class="booking-area">
+
+        <div class="services-box">
+            <section id="services">
+                <h3>Our Services</h3>
+                <p>We offer a wide range of laundry services to meet your needs.</p>
+
+                <div class="service-item">
+                    <p>Dry Cleaning <span>₹200</span></p>
+                    <button id="dryCleaningBtn">Add Item</button>
+                </div>
+
+                <div class="service-item">
+                    <p>Wash & Fold <span>₹100</span></p>
+                    <button id="washFoldBtn">Add Item</button>
+                </div>
+
+                <div class="service-item">
+                    <p>Ironing <span>₹50</span></p>
+                    <button id="ironingBtn">Add Item</button>
+                </div>
+            </section>
         </div>
 
-        <div>
-            <p>Wash & Fold - ₹100</p>
-            <button id="washFoldBtn">Add Item</button>
+        <div class="right-box">
+            <section id="cart">
+                <h2>Added Items</h2>
+
+                <div class="cart-head">
+                    <span>S.No</span>
+                    <span>Service Name</span>
+                    <span>Price</span>
+                </div>
+
+                <ul id="cartItems">
+                    <li class="empty-cart" id="emptyCart">No items added.</li>
+                </ul>
+
+                <h3>
+                    <span>Total Amount</span>
+                    <span>₹<span id="total">0</span></span>
+                </h3>
+            </section>
+            <section id="booking">
+                <h2>Book Now</h2>
+
+                <form id="bookingForm">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="email">Email ID</label>
+                            <input type="email" id="email" name="email" placeholder="mailid@gmail.com" required>
+                        </div>
+
+                        <div>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="0000000000" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="bookButton">Book now</button>
+
+                    <p id="bookingMessage"></p>
+                </form>
+            </section>
         </div>
 
-        <div>
-            <p>Ironing - ₹50</p>
-            <button id="ironingBtn">Add Item</button>
-        </div>
     </section>
 
-    <section id="cart">
-        <h2>Your Cart</h2>
-        <p>Items you have added to your cart will appear here.</p>
-        <p id="cartItems">No items added.</p>
-
-        <h3>Total: ₹<span id="total">0</span></h3>
-    </section>
-
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" required><br><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    <section id="about">
-
-        <h2>Why Choose Us?</h2>
-
-        <div>
-            <h3>Premium Services</h3>
-            <p>We provide high quality laundry services to keep your clothes clean and fresh.</p>
-        </div>
-
-        <div>
-            <h3>Quick Support</h3>
-            <p>Our team is always ready to help with your questions and bookings.</p>
-        </div>
-
-        <div>
-            <h3>Timely Delivery</h3>
-            <p>We make sure your clothes are delivered on time.</p>
-        </div>
-
-        <div>
-            <h3>Affordable Prices</h3>
-            <p>Our services are reasonably priced for every customer.</p>
-        </div>
-
-    </section>
 
     <section id="newsletter">
 

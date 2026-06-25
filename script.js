@@ -7,110 +7,115 @@ const ironingButton = document.getElementById("ironingBtn");
 const cart = document.getElementById("cartItems");
 const totalPrice = document.getElementById("total");
 
+let dryAdded = false;
+let washAdded = false;
+let ironingAdded = false;
+
 function removeEmptyMessage() {
-    if (cart.textContent.includes("No items added")) {
-        cart.innerHTML = "";
+    const emptyCart = document.getElementById("emptyCart");
+
+    if (emptyCart) {
+        emptyCart.remove();
     }
 }
 
 function showEmptyMessage() {
     if (cart.children.length === 0) {
-        cart.innerHTML = "<li>No items added.</li>";
+        cart.innerHTML = '<li class="empty-cart" id="emptyCart">No items added.</li>';
     }
 }
 
-dryButton.addEventListener("click", function () {
-    removeEmptyMessage();
-
-    total = total + 200;
-
+function addCartItem(itemId, serviceName, price) {
     const item = document.createElement("li");
-    item.textContent = "Dry Cleaning ";
+    item.id = itemId;
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
+    item.innerHTML = `
+        <span></span>
+        <span>${serviceName}</span>
+        <span>₹${price}</span>
+    `;
 
-    removeButton.addEventListener("click", function () {
-        item.remove();
-
-        total = total - 200;
-        totalPrice.textContent = total;
-
-        dryButton.disabled = false;
-        dryButton.textContent = "Add Item";
-
-        showEmptyMessage();
-    });
-
-    item.appendChild(removeButton);
     cart.appendChild(item);
+}
+
+function removeCartItem(itemId) {
+    const item = document.getElementById(itemId);
+
+    if (item) {
+        item.remove();
+    }
+
+    showEmptyMessage();
+}
+
+dryButton.addEventListener("click", function () {
+    if (dryAdded === false) {
+        removeEmptyMessage();
+
+        addCartItem("dryItem", "Dry Cleaning", 200);
+        total = total + 200;
+
+        dryButton.textContent = "Remove Item";
+        dryButton.classList.add("remove-mode");
+
+        dryAdded = true;
+    } else {
+        removeCartItem("dryItem");
+        total = total - 200;
+
+        dryButton.textContent = "Add Item";
+        dryButton.classList.remove("remove-mode");
+
+        dryAdded = false;
+    }
 
     totalPrice.textContent = total;
-
-    dryButton.disabled = true;
-    dryButton.textContent = "Added";
 });
 
 washButton.addEventListener("click", function () {
-    removeEmptyMessage();
+    if (washAdded === false) {
+        removeEmptyMessage();
 
-    total = total + 100;
+        addCartItem("washItem", "Wash & Fold", 100);
+        total = total + 100;
 
-    const item = document.createElement("li");
-    item.textContent = "Wash & Fold ";
+        washButton.textContent = "Remove Item";
+        washButton.classList.add("remove-mode");
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-
-    removeButton.addEventListener("click", function () {
-        item.remove();
-
+        washAdded = true;
+    } else {
+        removeCartItem("washItem");
         total = total - 100;
-        totalPrice.textContent = total;
 
-        washButton.disabled = false;
         washButton.textContent = "Add Item";
+        washButton.classList.remove("remove-mode");
 
-        showEmptyMessage();
-    });
-
-    item.appendChild(removeButton);
-    cart.appendChild(item);
+        washAdded = false;
+    }
 
     totalPrice.textContent = total;
-
-    washButton.disabled = true;
-    washButton.textContent = "Added";
 });
 
 ironingButton.addEventListener("click", function () {
-    removeEmptyMessage();
+    if (ironingAdded === false) {
+        removeEmptyMessage();
 
-    total = total + 50;
+        addCartItem("ironingItem", "Ironing", 50);
+        total = total + 50;
 
-    const item = document.createElement("li");
-    item.textContent = "Ironing ";
+        ironingButton.textContent = "Remove Item";
+        ironingButton.classList.add("remove-mode");
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-
-    removeButton.addEventListener("click", function () {
-        item.remove();
-
+        ironingAdded = true;
+    } else {
+        removeCartItem("ironingItem");
         total = total - 50;
-        totalPrice.textContent = total;
 
-        ironingButton.disabled = false;
         ironingButton.textContent = "Add Item";
+        ironingButton.classList.remove("remove-mode");
 
-        showEmptyMessage();
-    });
-
-    item.appendChild(removeButton);
-    cart.appendChild(item);
+        ironingAdded = false;
+    }
 
     totalPrice.textContent = total;
-
-    ironingButton.disabled = true;
-    ironingButton.textContent = "Added";
 });
