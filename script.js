@@ -3,6 +3,9 @@ let total = 0;
 const dryButton = document.getElementById("dryCleaningBtn");
 const washButton = document.getElementById("washFoldBtn");
 const ironingButton = document.getElementById("ironingBtn");
+const stainButton = document.getElementById("stainRemovalBtn");
+const leatherButton = document.getElementById("leatherBtn");
+const weddingButton = document.getElementById("weddingBtn");
 
 const cart = document.getElementById("cartItems");
 const totalPrice = document.getElementById("total");
@@ -10,6 +13,9 @@ const totalPrice = document.getElementById("total");
 let dryAdded = false;
 let washAdded = false;
 let ironingAdded = false;
+let stainAdded = false;
+let leatherAdded = false;
+let weddingAdded = false;
 
 function removeEmptyMessage() {
     const emptyCart = document.getElementById("emptyCart");
@@ -115,6 +121,62 @@ ironingButton.addEventListener("click", function () {
         ironingButton.classList.remove("remove-mode");
 
         ironingAdded = false;
+    }
+
+    totalPrice.textContent = total;
+});
+stainButton.addEventListener("click", function () {
+    if (stainAdded === false) {
+        removeEmptyMessage();
+        addCartItem("stainItem", "Stain Removal", 500);
+        total = total + 500;
+        stainButton.textContent = "Remove Item";
+        stainButton.classList.add("remove-mode");
+        stainAdded = true;
+    } else {
+        removeCartItem("stainItem");
+        total = total - 500;
+        stainButton.textContent = "Add Item";
+        stainButton.classList.remove("remove-mode");
+        stainAdded = false;
+    }
+
+    totalPrice.textContent = total;
+});
+
+leatherButton.addEventListener("click", function () {
+    if (leatherAdded === false) {
+        removeEmptyMessage();
+        addCartItem("leatherItem", "Leather & Suede Cleaning", 999);
+        total = total + 999;
+        leatherButton.textContent = "Remove Item";
+        leatherButton.classList.add("remove-mode");
+        leatherAdded = true;
+    } else {
+        removeCartItem("leatherItem");
+        total = total - 999;
+        leatherButton.textContent = "Add Item";
+        leatherButton.classList.remove("remove-mode");
+        leatherAdded = false;
+    }
+
+    totalPrice.textContent = total;
+});
+
+weddingButton.addEventListener("click", function () {
+    if (weddingAdded === false) {
+        removeEmptyMessage();
+        addCartItem("weddingItem", "Wedding Dress Cleaning", 2800);
+        total = total + 2800;
+        weddingButton.textContent = "Remove Item";
+        weddingButton.classList.add("remove-mode");
+        weddingAdded = true;
+    } else {
+        removeCartItem("weddingItem");
+        total = total - 2800;
+        weddingButton.textContent = "Add Item";
+        weddingButton.classList.remove("remove-mode");
+        weddingAdded = false;
     }
 
     totalPrice.textContent = total;
