@@ -9,44 +9,87 @@
 <body>
 
     <header>
-        <h2>Laundry Service App</h2>
+        <h2 class="logo">FreshFold Laundry</h2>
         <nav>
             <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
         </nav>
+        <span>Username</span>
     </header>
-    <section>
-        <h3>Welcome to Our Laundry Service</h3>
-        <p>We provide top-notch laundry services for your convenience. Our team ensures your clothes are cleaned and
-            returned fresh and ready to wear.</p>
-        <button>Book a Service</button>
+    <section class="hero">
+
+        <div>
+            <h1>
+                Revitalize Your Clothes with Expert
+                <span>Laundry Services!</span>
+            </h1>
+
+            <p>
+                From premium dry cleaning to swift wash and fold, we deliver care and convenience.
+                Schedule a pickup and rediscover the freshness of your clothes today!
+            </p>
+
+            <button>Book a service today!</button>
+        </div>
+
+        <div>
+            <img src="washingmachine.png" alt="Washing Machine">
+        </div>
+
     </section>
+
+
+    <section class="achievements">
+
+        <div class="achievement-title">
+            <h2>Our Achievements</h2>
+        </div>
+
+        <div class="achievement-box">
+            <h2>15+</h2>
+            <p>Laundry Services</p>
+        </div>
+
+        <div class="achievement-box">
+            <h2>240+</h2>
+            <p>Happy Customers</p>
+        </div>
+
+        <div class="achievement-box">
+            <h2>2+ Yrs</h2>
+            <p>Experience</p>
+        </div>
+
+    </section>
+
     <section id="services">
         <h3>Our Services</h3>
         <p>We offer a wide range of laundry services to meet your needs.</p>
 
         <div>
-            <p>Dry Cleaning</p>
-            <button>Add Item</button>
+            <p>Dry Cleaning - ₹200</p>
+            <button id="dryCleaningBtn">Add Item</button>
         </div>
 
         <div>
-            <p>Wash & Fold</p>
-            <button>Add Item</button>
+            <p>Wash & Fold - ₹100</p>
+            <button id="washFoldBtn">Add Item</button>
         </div>
 
         <div>
-            <p>Ironing</p>
-            <button>Add Item</button>
+            <p>Ironing - ₹50</p>
+            <button id="ironingBtn">Add Item</button>
         </div>
     </section>
 
     <section id="cart">
         <h2>Your Cart</h2>
         <p>Items you have added to your cart will appear here.</p>
-        <h3>Total: ₹0.00</h3>
+        <p id="cartItems">No items added.</p>
+
+        <h3>Total: ₹<span id="total">0</span></h3>
     </section>
 
     <form>
@@ -128,6 +171,7 @@
         </p>
 
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
